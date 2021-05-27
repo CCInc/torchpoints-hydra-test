@@ -1,0 +1,3 @@
+# @package data
+defaults:
+  - segmentation/s3dis/default

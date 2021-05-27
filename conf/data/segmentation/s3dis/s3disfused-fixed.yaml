@@ -1,0 +1,21 @@
+# @package data
+defaults:
+  - segmentation/s3dis/default
+
+train_transform: 
+  - transform: FixedPoints
+    lparams: [20000]
+  - "${data.aug_transform}"
+  - "${data.common_transform}"
+  - transform: ScalePos
+    params:
+      scale: 0.5
+
+val_transform: 
+  - transform: FixedPoints
+    lparams: [20000]
+  - "${data.common_transform}"
+  - transform: ScalePos
+    params:
+      scale: 0.5
+      

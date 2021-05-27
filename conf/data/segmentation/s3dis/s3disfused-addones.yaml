@@ -1,0 +1,17 @@
+# @package data
+defaults:
+  - segmentation/s3dis/default
+  
+common_transform:
+  - transform: XYZFeature
+    params:
+      add_x: False
+      add_y: False
+      add_z: True
+  - transform: AddOnes
+  - transform: AddFeatsByKeys
+    params:
+      list_add_to_x: [True, True, True]
+      feat_names: [rgb, pos_z, ones]
+      delete_feats: [True, True, True]
+  - transform: Center
